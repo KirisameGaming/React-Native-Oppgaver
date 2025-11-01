@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, StyleSheet, Switch, Text, TextInput, View, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import { Button, StyleSheet, Switch, Text, TextInput, View, TouchableWithoutFeedback, Keyboard, Platform} from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 
 export default function App() {
@@ -93,7 +93,7 @@ export default function App() {
   })
 
   return (
-  <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
+  <TouchableWithoutFeedback onPress={(Platform.OS === "web") ? () => {} : Keyboard.dismiss} > 
   <View style={ styles.screen }>
     <View style={ styles.container1 } >                    
       <Text style={ styles.text_heading}> 
